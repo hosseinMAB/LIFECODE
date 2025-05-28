@@ -1,0 +1,214 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 20px;
+  direction: rtl;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+/* اسم المشفى داخل div بميلان خفيف وتأثير مميز */
+#hospital-name-container {
+  background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  padding: 15px 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(75, 108, 183, 0.6);
+  transform: rotate(-3deg);
+  text-align: center;
+  user-select: none;
+}
+
+#hospital-name-container h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 900;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* بطاقة الملف الطبي كاملة */
+#medical-info-card {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* عنوان الملف الطبي */
+#medical-info-card h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* بطاقة معلومات المستخدم */
+#user-details {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(254, 214, 227, 0.7);
+  line-height: 1.6;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* تحسين التنسيق للحقول داخل بطاقة المستخدم */
+#user-details p {
+  margin: 8px 0;
+}
+/* تنسيق الجدول المحسن */
+table {
+  width: 100%;
+  border-collapse: separate; /* لعمل مساحة بين الخلايا */
+  border-spacing: 0 8px; /* مسافة رأسية بين الصفوف */
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden; /* لجعل الزوايا مستديرة */
+}
+
+/* رأس الجدول */
+th {
+  background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  color: white;
+  user-select: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* خلايا البيانات */
+td {
+  background-color: #f9fbff;
+  padding: 15px 20px;
+  text-align: center;
+  color: #222;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+/* تمييز الصف عند المرور */
+tbody tr:hover td {
+  background-color: #d8e3ff;
+  cursor: default;
+  color: #0a1e70;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(75, 108, 183, 0.3);
+  border-radius: 8px;
+}
+
+/* إزالة حدود الجدول الافتراضية */
+tbody tr {
+  border: none;
+}
+
+/* نافذة إدخال الرمز - تغطي الشاشة كاملة */
+#hospital-code-container {
+  display: flex; /* نستخدم فلكس لجعل المحتوى في الوسط */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* تغطية داكنة خلف النافذة */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease; /* تأثير ظهور بطيء */
+}
+
+/* عند إظهار النافذة */
+#hospital-code-container.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* صندوق النافذة */
+#hospital-code-container > div {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transform: translateY(-20px);
+  transition: transform 0.5s ease;
+}
+
+/* تحريك الصندوق لأعلى عند الظهور */
+#hospital-code-container.active > div {
+  transform: translateY(0);
+}
+
+/* عنوان النافذة */
+#hospital-code-container h2 {
+  margin: 0 0 15px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #182848;
+  user-select: none;
+}
+
+/* حقل الإدخال */
+#hospital-code {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border: 2px solid #4b6cb7;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#hospital-code:focus {
+  border-color: #182848;
+  box-shadow: 0 0 8px rgba(24, 40, 72, 0.6);
+}
+
+/* رسالة الخطأ */
+#error-message {
+  margin-top: 12px;
+  color: #d9534f;
+  min-height: 20px;
+  font-weight: 600;
+}
+
+/* زر التأكيد */
+#submit-code {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#submit-code:hover {
+  background: linear-gradient(135deg, #182848 0%, #4b6cb7 100%);
+}
